@@ -35,7 +35,8 @@ int main(void) {
 
   printf("Enter some new content \n");
   //This is one way to get a string input.
-  //Scanf will also discards the new line character
+  //Scanf will not discard the new line character
+  //We'll remove the \n in a while
   scanf("%[^\n]s", sentence);
 
   //Print the string you just got onto the blank file
@@ -46,8 +47,7 @@ int main(void) {
   c = getchar();     //Remove the new line char
   //Better  way to get a string input.
   fgets(sentence, sizeof(sentence), stdin);
-
-  // c = getchar();     //Remove the new line char
+  
   //Print the new input onto the next line on the file
   //Notice no \n here becuase fgets will inlcude that in string as well.
   fprintf(fptr, "%s", sentence);
