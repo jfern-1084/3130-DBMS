@@ -23,6 +23,9 @@ Tut A02: Hariprasad Ramakrishnan (hrama039atuottawadotca)
 
 ### Updates 
 
+3 : 07/10/2019
+Lab 4 updated
+
 2 : 05/10/2019
 Tutorials session 2 and 3 have now been updated
 
