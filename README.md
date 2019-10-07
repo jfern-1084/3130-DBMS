@@ -4,21 +4,21 @@ Lab and tutorial files for students
 ## TA contact details
 
 ### CSI 3130
-Lab A01: Ebenezer Laryea (elary017@uottawa.ca)
+Lab A01: Ebenezer Laryea (elary017atuottawadotca)
 
-Lab A02: Johan Fernandes (jfern090@uottawa.ca)
+Lab A02: Johan Fernandes (jfern090atuottawadotca)
 
 Lab A03: Johan Fernandes and Ebenezer Laryea
 
-Tut A04: Hariprasad Ramakrishnan (hrama039@uottawa.ca)
+Tut A04: Hariprasad Ramakrishnan (hrama039atuottawadotca)
 
 
 ### CSI 3530
-Lab A01: Gurinder Kaur (gkaur073@uottawa.ca)
+Lab A01: Gurinder Kaur (gkaur073atuottawadotca)
 
 Lab A03: Gurinder Kaur
 
-Tut A02: Hariprasad Ramakrishnan (hrama039@uottawa.ca)
+Tut A02: Hariprasad Ramakrishnan (hrama039atuottawadotca)
 
 
 ### Updates 
