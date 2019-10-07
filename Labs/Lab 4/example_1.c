@@ -1,6 +1,6 @@
-/*Code developed by Johan Fernandes
+/*Code developed by Miguel Garzon
 for code : CSI 3130
-Inspiration from code developed by Miguel Garzon*/
+Merged and edited by Johan Fernandes*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +13,7 @@ int main(void)
 	//Example of bad array indexing
 	char a[10];
 	char *b = "bbbbb";
-	
+
 	a[0]=a[1]=a[2]= 'a';
 	a[3]='\0';
 
