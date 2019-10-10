@@ -1,0 +1,308 @@
+******************************************************************
+Program to find Sum of N input Numbers using Array
+
+
+#include<stdio.h>
+
+int main()
+{
+    int n, sum = 0, c, array[100];
+
+    printf("Enter the number of integers you want to add: ");
+    scanf("%d", &n);
+
+    printf("\n\nEnter %d integers \n\n", n);
+
+    for(c = 0; c < n; c++)
+    {
+        scanf("%d", &array[c]);
+        sum += array[c];    // same as sum = sum + array[c]
+    }
+
+    printf("\n\nSum = %d\n\n", sum);
+    return 0;
+}
+
+******************************************************************
+Program for Dynamic Memory Allocation using malloc()
+
+ Below is a program on dynamic memory allocation using malloc() and clearing out memory space using free(). sizeof() returns the number of bytes occupied by any datatype, in this case by an integer. 
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int n, i, *ptr, sum = 0;
+
+    printf("\n\nEnter number of elements: ");
+    scanf("%d", &n);
+
+    // dynamic memory allocation using malloc()
+    ptr = (int *) malloc(n*sizeof(int));
+
+    if(ptr == NULL) // if empty array
+    {
+        printf("\n\nError! Memory not allocated\n");
+        return 0;   // end of program
+    }
+
+    printf("\n\nEnter elements of array: \n\n");
+    for(i = 0; i < n; i++)
+    {
+        // storing elements at contiguous memory locations
+        scanf("%d", ptr+i);    
+        sum = sum + *(ptr + i);
+    }
+
+    // printing the array elements using pointer to the location
+    printf("\n\nThe elements of the array are: ");
+    for(i = 0; i < n; i++)
+    {
+        printf("%d  ",ptr[i]);    // ptr[i] is same as *(ptr + i)
+    }
+
+    /* 
+        freeing memory of ptr allocated by malloc 
+        using the free() method
+    */
+    free(ptr);
+
+    return 0;
+}
+
+******************************************************************
+Program to check if input Number is int or float
+
+#include<stdio.h>
+
+#include<conio.h>
+#include<string.h>
+
+int main()
+{
+    char number[10];
+    int flag = 0;
+    int length, i = 0;
+
+    printf("\n\nEnter a number: ");
+    scanf("%s", number);
+
+    length = strlen(number);
+
+    // till string does not end
+    while(number[i++] != '\0')    // same as while(length-->0)
+    {
+        if(number[i] == '.')    // decimal point is present
+        {
+            flag = 1;
+            break;
+        }
+    }
+
+    // if(0) is same as if(false)
+    if(flag)
+        printf("\n\n\n\tEntered Number is a Floating point Number\n\n");
+    else
+        printf("\n\n\n\tEntered Number is a integer Number\n\n");
+
+    return 0;
+}
+
+
+
+******************************************************************
+C Program to Reverse a String using Pointer
+
+
+#include <stdio.h>
+
+int main()
+{
+
+    char str[100];
+    char rev[100];
+    char *sptr = str; // sptr stores the base address of the str
+    char *rptr = rev; // rptr stores the base address of the reverse
+
+    int i = -1;
+
+    printf("\n\nEnter a string: ");
+    scanf("%s", str);
+
+    // storing the ending address of str in sptr
+    while(*sptr)
+    {
+        sptr++;
+        i++; // i is the index of the end location
+    }
+
+    // storing the string str in rev in reverse order
+    while(i >= 0)
+    {
+        /*
+            First decrementing then using as it stores 
+            the location after the end location due to above while loop
+        */
+        sptr--; 
+        *rptr = *sptr;  // storing the value in sptr in rptr
+        rptr++; // pointing to next location
+        i--;    // decrementing the index
+    }
+    /*
+        String should always end with '\0' so explicitly 
+        putting it at the end of the string
+    */
+    *rptr = '\0'; 
+    rptr = rev; // restoring the base address of the reverse string
+
+    // storing the reverse string in the original string
+    while(*rptr)
+    {
+        *sptr = *rptr;
+        sptr++;
+        rptr++;
+    }
+
+    // printing the reverse string
+    printf("\n\nReverse of the string is: %s ", str);
+    return 0;
+}
+
+
+
+
+******************************************************************
+Program to Swap Two Numbers using Pointers
+
+#include<stdio.h>
+
+int main()
+{
+
+    int a, b;
+    int *ptra, *ptrb;
+    int temp;
+
+    printf("Enter value for a: ");
+    scanf("%d", &a);
+
+    printf("\n\nEnter value for b: ");
+    scanf("%d", &b);
+
+    printf("\n\nThe values before swapping are: a = %d     b = %d", a, b);
+
+    ptra = &a;    // to store the location of a
+    ptrb = &b;    // to store the location of b
+
+    temp = *ptra;   // temp stores the value at location ptra
+    *ptra = *ptrb;  // assigning value at location  ptrb to ptra
+    *ptrb = temp;   // assign value of temp to  the variable at location ptrb
+
+    printf("\n\nThe values after swapping are: a = %d    b = %d", a, b);
+
+    return 0;
+
+}
+
+
+
+******************************************************************
+C program to concatenate two strings using pointer
+
+#include <stdio.h>
+#define MAX_SIZE 100 // Maximum string size
+ 
+int main()
+{
+    char str1[MAX_SIZE], str2[MAX_SIZE];
+    char * s1 = str1;
+    char * s2 = str2;
+ 
+    // Inputting 2 strings from user
+    printf("Enter 1st string: ");
+    gets(str1);
+    printf("Enter 2nd string: ");
+    gets(str2);
+ 
+    // Moving till the end of str1
+    while(*(++s1));
+ 
+    // Coping str2 to str1
+    while(*(s1++) = *(s2++));
+ 
+    printf("Concatenated string: %s", str1);
+ 
+    return 0;
+}
+ 
+******************************************************************
+
+program for Pointer to a Function
+
+#include<stdio.h>
+
+int func(int a, int b)  // function definition
+{
+    printf("\n\n a = %d \n", a);
+    printf("\n\n b = %d \n", b);
+}
+
+int main()
+{
+
+    // function pointer
+    int(*fptr)(int , int);
+
+    // assign address to function pointer
+    fptr = func;
+
+    // function calling
+    func(2,3);
+    fptr(2,3);  // calling a function referring to pointer to a function
+
+    return 0;
+}
+
+
+
+******************************************************************
+
+// Program to add two distances (feet-inch) using structures
+#include <stdio.h>
+struct Distance
+{
+    int feet;
+    float inch;
+} dist1, dist2, sum;
+int main()
+{
+    printf("1st distance\n");
+    printf("Enter feet: ");
+    scanf("%d", &dist1.feet);
+    printf("Enter inch: ");
+    scanf("%f", &dist1.inch);
+    printf("2nd distance\n");
+    printf("Enter feet: ");
+    scanf("%d", &dist2.feet);
+    printf("Enter inch: ");
+    scanf("%f", &dist2.inch);
+    // adding feet
+    sum.feet = dist1.feet + dist2.feet;
+    // adding inches
+    sum.inch = dist1.inch + dist2.inch;
+    // changing to feet if inch is greater than 12
+    while (sum.inch >= 12) 
+    {
+        ++sum.feet;
+        sum.inch = sum.inch - 12;
+    }
+    printf("Sum of distances = %d\'-%.1f\"", sum.feet, sum.inch);
+    return 0;
+}
+
+
+
+******************************************************************
+
