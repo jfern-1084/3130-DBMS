@@ -1,5 +1,7 @@
+//Code examples developed by Ebenezer Laryea
+//for course CSI 3130
 ******************************************************************
-Program to find Sum of N input Numbers using Array
+//Program to find Sum of N input Numbers using Array
 
 
 #include<stdio.h>
@@ -24,9 +26,11 @@ int main()
 }
 
 ******************************************************************
-Program for Dynamic Memory Allocation using malloc()
+//Program for Dynamic Memory Allocation using malloc()
 
- Below is a program on dynamic memory allocation using malloc() and clearing out memory space using free(). sizeof() returns the number of bytes occupied by any datatype, in this case by an integer. 
+//Below is a program on dynamic memory allocation using malloc() and 
+//clearing out memory space using free(). sizeof() returns the number 
+//of bytes occupied by any datatype, in this case by an integer. 
 
 
 
@@ -73,7 +77,7 @@ int main()
 }
 
 ******************************************************************
-Program to check if input Number is int or float
+//Program to check if input Number is int or float
 
 #include<stdio.h>
 
@@ -113,7 +117,7 @@ int main()
 
 
 ******************************************************************
-C Program to Reverse a String using Pointer
+//C Program to Reverse a String using Pointer
 
 
 #include <stdio.h>
@@ -174,7 +178,7 @@ int main()
 
 
 ******************************************************************
-Program to Swap Two Numbers using Pointers
+//Program to Swap Two Numbers using Pointers
 
 #include<stdio.h>
 
@@ -209,7 +213,7 @@ int main()
 
 
 ******************************************************************
-C program to concatenate two strings using pointer
+//C program to concatenate two strings using pointer
 
 #include <stdio.h>
 #define MAX_SIZE 100 // Maximum string size
@@ -239,7 +243,7 @@ int main()
  
 ******************************************************************
 
-program for Pointer to a Function
+//Program for Pointer to a Function
 
 #include<stdio.h>
 

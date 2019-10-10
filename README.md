@@ -22,6 +22,8 @@ Tut A02: Hariprasad Ramakrishnan (hrama039atuottawadotca)
 
 
 ### Updates 
+4 : 10/10/2019
+More examples added to Lab 4
 
 3 : 07/10/2019
 Lab 4 updated
