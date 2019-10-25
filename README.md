@@ -1,6 +1,8 @@
 # CSI 3130 and 3530 - DBMS II
 Lab and tutorial files for students
 
+Note : Check this Postgres tutorial to get a refresher on how to qrite your queries : http://www.postgresqltutorial.com/
+
 ## TA contact details
 
 ### CSI 3130
@@ -22,6 +24,9 @@ Tut A02: Hariprasad Ramakrishnan (hrama039atuottawadotca)
 
 
 ### Updates 
+5 : 25/10/2019
+Lab 5: Postgres installation and links that will be helpful as a reference
+
 4 : 10/10/2019
 More examples added to Lab 4
 
