@@ -1,7 +1,7 @@
 # CSI 3130 and 3530 - DBMS II
 Lab and tutorial files for students
 
-Note : Check this Postgres tutorial to get a refresher on how to qrite your queries : http://www.postgresqltutorial.com/
+Note : Check this Postgres tutorial to get a refresher on how to write your queries : http://www.postgresqltutorial.com/
 
 ## TA contact details
 
