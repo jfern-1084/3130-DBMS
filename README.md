@@ -1,6 +1,11 @@
 # CSI 3130 and 3530 - DBMS II
 Lab and tutorial files for students
 
+### Important: 
+The project folder in this repo contains the four files mentioned in the Project document provided by Dr. Kiringa in his earlier email.
+The project is a group project with a max of 4 members. On completing the project you can present it to the lab TA's and then send it
+as an email to your lab TA for final evaluation. 
+
 Note : Check this Postgres tutorial to get a refresher on how to write your queries : http://www.postgresqltutorial.com/
 
 ## TA contact details
