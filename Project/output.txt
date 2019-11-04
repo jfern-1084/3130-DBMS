@@ -1,0 +1,40 @@
+Client output:
+==============
+
+  manager   |  employee
+------------+------------
+ Jack       | Jack      
+ Jack       | Sarah     
+ Jack       | Jane      
+ Jack       | Sam       
+ Jack       | Matt      
+ Jack       | Sally     
+ Jack       | Smith     
+ John       | Mike      
+ John       | Joe       
+ John       | Sean      
+ John       | John      
+ Sean       | Jeff      
+ Sean       | Max       
+ Sean       | Tom       
+ Simon      | Alex      
+ Simon      | Martin    
+ Simon      | Simon     
+ Simon      | Jen       
+ Simon      | Kevin     
+ Simon      | Amy   
+(20 rows)
+
+
+both inner (20 tuples) and outer (5 tuples) exhausted
+Got 0 matches by probing inner hash table
+Got 5 matches by probing outer hash table
+Assuming outer is always probed first
+both inner (5 tuples) and outer (20 tuples) exhausted
+Got 20 matches by probing inner hash table
+Got 0 matches by probing outer hash table
+Assuming outer is always probed first
+both inner (20 tuples) and outer (5 tuples) exhausted
+Got 5 matches by probing inner hash table
+Got 15 matches by probing outer hash table
+Assuming outer is always probed first
