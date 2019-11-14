@@ -6,6 +6,9 @@ The project folder in this repo contains the four files mentioned in the Project
 The project is a group project with a max of 4 members. On completing the project you can present it to the lab TA's and then send it
 as an email to your lab TA for final evaluation. 
 
+Imp: The Project Setup.pdf file in the Project folder has the list of steps on how you can setup the project in Windows 10.
+	 For Mac / Linux users you can use steps 2 - 6 and for step 8 you can simply edit the files as you normally would.
+	 
 Note : Check this Postgres tutorial to get a refresher on how to write your queries : http://www.postgresqltutorial.com/
 
 ## TA contact details
