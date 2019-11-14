@@ -33,7 +33,7 @@ Tut A02: Hariprasad Ramakrishnan (hrama039atuottawadotca)
 
 ### Updates 
 5 : 25/10/2019
-Lab 5: Postgres installation and links that will be helpful as a reference
+Lab 5: Postgres installation and links that will be helpful as a reference (Updated 7/11/2019)
 
 4 : 10/10/2019
 More examples added to Lab 4
