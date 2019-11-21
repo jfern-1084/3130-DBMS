@@ -32,6 +32,9 @@ Tut A02: Hariprasad Ramakrishnan (hrama039atuottawadotca)
 
 
 ### Updates 
+6 : 25/10/2019
+Project Folder : Guidelines for projected uploaded (Updated 20/11/2019)
+
 5 : 25/10/2019
 Lab 5: Postgres installation and links that will be helpful as a reference (Updated 7/11/2019)
 
