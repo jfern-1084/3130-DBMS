@@ -35,7 +35,7 @@ Tut A02: Hariprasad Ramakrishnan (hrama039atuottawadotca)
 
 
 ### Updates 
-7 : 21/11/2019
+7 : 21/11/2019 
 ### Project Deadline: Monday December 9 at 6:00 pm at the latest
 
 6 : 21/11/2019
