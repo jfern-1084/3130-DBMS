@@ -1,0 +1,19 @@
+ rm -rf /usr/local/pgsql/data
+ 
+ /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data/
+ 
+/usr/local/pgsql/bin/postmaster -D /usr/local/pgsql/data -p 5431
+
+ /usr/local/pgsql/bin/createdb test -p 5431
+
+su postgres
+
+cd /home/postgres
+  
+chmod 660 schema.sql
+  
+/usr/local/pgsql/bin/psql test -f schema.sql -p 5431
+
+/usr/local/pgsql/bin/psql test -p 5431
+
+/usr/local/pgsql/bin/pg_ctl stop -mimmediate -D /usr/local/pgsql/data -p 5431
