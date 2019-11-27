@@ -14,6 +14,12 @@ Imp: The Project Setup.pdf file in the Project folder has the list of steps on h
 	 
 Note : Check this Postgres tutorial to get a refresher on how to write your queries : http://www.postgresqltutorial.com/
 
+## Setting up Docker Postgres
+- Create a docker account, download and install docker
+- Pull this repo and navigate into the Docker folder
+- Inside of the docker folder there should be a file called docker-compose.yml
+- Run the command "docker-compose up -d" to bring up your docker postgres env
+
 ## TA contact details
 
 ### CSI 3130
