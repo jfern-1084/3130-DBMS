@@ -8,9 +8,9 @@ services:
     container_name: "docker_postgres"
 #   Setup the username, password, and database name. You can changes these values.
     environment:
-      - POSTGRES_USER=john
-      - POSTGRES_PASSWORD=pwd0123456789
-      - POSTGRES_DB=mydb
+      - POSTGRES_USER=user1
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db2
 #   Maps port 54320 (localhost) to port 5432 on the container. You can change the ports to fix your needs.
     ports:
       - "54320:5432"
