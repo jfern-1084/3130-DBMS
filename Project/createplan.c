@@ -1438,7 +1438,6 @@ create_mergejoin_plan(PlannerInfo *root,
 	return join_plan;
 }
 
-// CSI3530 //CSI3130
 static HashJoin *
 create_hashjoin_plan(PlannerInfo *root,
 					 HashPath *best_path,
@@ -1451,8 +1450,9 @@ create_hashjoin_plan(PlannerInfo *root,
 	List	   *hashclauses;
 	HashJoin   *join_plan;
 	Hash	   *hash_plan;
-	// CSI3530 IL FAUT AJOUTER UN AUTRE HASH_PLAN, DEUX AU TOTAL (INNER ET OUTER)
-	// CSI3130 You must add another hash plan, two in total (inner and outer)
+	//CSI3130 add another hash plan for outer:
+	Hash *hash_plan_outter;
+
 
 	/* Get the join qual clauses (in plain expression form) */
 	if (IS_OUTER_JOIN(best_path->jpath.jointype))
@@ -1492,16 +1492,17 @@ create_hashjoin_plan(PlannerInfo *root,
 	/*
 	 * Build the hash node and hash join node.
 	 */
-	// CSI3530 Il faut construire le hash node et le hash join node pour les deux hash plans (outer et inner)
-	// CSI3130 You must build the hash node and hash join node for both hash plans (outer and inner)
 	hash_plan = make_hash(inner_plan);
+	//CSI3130 outter hash plan:
+	hash_plan_outter = make_hash(outer_plan);
+
 	join_plan = make_hashjoin(tlist,
 							  joinclauses,
 							  otherclauses,
 							  hashclauses,
-							  outer_plan,
+							  //CSI3130
+							  (Plan *) hash_plan_outter,
 							  (Plan *) hash_plan,
-							  // CSI3530 //CSI3130 ...
 							  best_path->jpath.jointype);
 
 	copy_path_costsize(&join_plan->join.plan, &best_path->jpath.path);
