@@ -8,7 +8,7 @@
  *
  *
  * IDENTIFICATION
- *	  $PostgreSQL: pgsql/src/backend/executor/nodeHashjoin.c,v 1.75.2.3 2005/11/28 23:46:24 tgl Exp $
+ *	  $PostgreSQL: pgsql/src/backend/executor/nodeHashjoin.c,v 1.75.2.4 2007/02/02 00:07:44 tgl Exp $
  *
  *-------------------------------------------------------------------------
  */
@@ -47,18 +47,24 @@ ExecHashJoin(HashJoinState *node)
 {
 	EState	   *estate;
 	PlanState  *outerNode;
-	// CSI3530 il faut un innerNode aussi //CSI3130 You need an inner node too
+	//CSI3130 inner node:
+	PlanState *innerNode;
 	HashState  *hashNode;
 	List	   *joinqual;
 	List	   *otherqual;
 	TupleTableSlot *inntuple;
-	// CSI3530 il faut un outer_hashtable aussi //CSI 3130 You need an outer_hashtable node too
+	//CSI 3130 outer_hashtable:
+	TupleTableSlot *outTuple;
 	ExprContext *econtext;
 	ExprDoneCond isDone;
+	//CSI3130 ---------------------------------------------
 	HashJoinTable hashtable;
+	HashJoinTable outerHashTable
 	HeapTuple	curtuple;
 	TupleTableSlot *outerTupleSlot;
-    // CSI3530 il faut un innerTupleSlot aussi //CSI3130 You need an innerTupleSlot too
+	//CSI3130 innerTupleSlot:
+	TupleTableSlot *innerTupleSlot;
+
 	uint32		hashvalue;
 	int			batchno;
 
@@ -70,13 +76,16 @@ ExecHashJoin(HashJoinState *node)
 	otherqual = node->js.ps.qual;
 	hashNode = (HashState *) innerPlanState(node);
 	outerNode = outerPlanState(node);
-	// CSI3530 and CSI3130 ...
+	//CSI3130 -----------------------------------------------------
+	innerNode = innerPlanState(node);
 
 	/*
 	 * get information from HashJoin state
 	 */
-	hashtable = node->hj_HashTable;
-    // CSI3530 and CSI3130 ...
+	//CSI3130 ----------------------------------------------------
+	hashtable = node->inner_hj_HashTable;
+	outerHashTable = node->outer_hj_HashTable;
+
 	econtext = node->js.ps.ps_ExprContext;
 
 	/*
@@ -113,7 +122,7 @@ ExecHashJoin(HashJoinState *node)
 	/*
 	 * if this is the first call, build the hash table for inner relation
 	 */
-	if (hashtable == NULL) //CSI3530 and CSI3130 ..
+	if (hashtable == NULL)
 	{
 		/*
 		 * If the outer relation is completely empty, we can quit without
@@ -324,7 +333,7 @@ ExecHashJoin(HashJoinState *node)
 
 				if (isDone != ExprEndResult)
 				{
-					node->js.ps.ps_TupinFromTlist =
+					node->js.ps.ps_TupFromTlist =
 						(isDone == ExprMultipleResult);
 					return result;
 				}
@@ -385,11 +394,9 @@ ExecInitHashJoin(HashJoin *node, EState *estate)
 	 * initialize child nodes
 	 */
 	outerNode = outerPlan(node);
-	// CSI3530 and CSI3130 ...
 	hashNode = (Hash *) innerPlan(node);
 
 	outerPlanState(hjstate) = ExecInitNode(outerNode, estate);
-	// CSI3530 and CSI3130 ...
 	innerPlanState(hjstate) = ExecInitNode((Plan *) hashNode, estate);
 
 #define HASHJOIN_NSLOTS 3
@@ -397,7 +404,6 @@ ExecInitHashJoin(HashJoin *node, EState *estate)
 	/*
 	 * tuple table initialization
 	 */
-	// CSI3530 and CSI3130 ... 
 	ExecInitResultTupleSlot(estate, &hjstate->js.ps);
 	hjstate->hj_OuterTupleSlot = ExecInitExtraTupleSlot(estate);
 
@@ -434,24 +440,21 @@ ExecInitHashJoin(HashJoin *node, EState *estate)
 	 * initialize tuple type and projection info
 	 */
 	ExecAssignResultTypeFromTL(&hjstate->js.ps);
-	ExecAssignProjectionInfo(&hjstate->js.ps); //CSI3530 and CSI3130
+	ExecAssignProjectionInfo(&hjstate->js.ps, NULL);
 
 	ExecSetSlotDescriptor(hjstate->hj_OuterTupleSlot,
 						  ExecGetResultType(outerPlanState(hjstate)),
-						  false); //CSI3530 and CSI3130
+						  false);
 
 	/*
 	 * initialize hash-specific info
 	 */
 	hjstate->hj_HashTable = NULL;
-	//CSI3530 and CSI3130...
 	hjstate->hj_FirstOuterTupleSlot = NULL;
 
-	//CSI3530 Plein d'initialisations a faire ici // CSI3130 Initialize here
 	hjstate->hj_CurHashValue = 0;
 	hjstate->hj_CurBucketNo = 0;
 	hjstate->hj_CurTuple = NULL;
-
 
 	/*
 	 * Deconstruct the hash clauses into outer and inner argument values, so
@@ -525,8 +528,7 @@ ExecEndHashJoin(HashJoinState *node)
 	 */
 	ExecClearTuple(node->js.ps.ps_ResultTupleSlot);
 	ExecClearTuple(node->hj_OuterTupleSlot);
-	// CSI3530 and CSI3130 ...
-	ExecClearTuple(node->hj_HashTupleSlot); 
+	ExecClearTuple(node->hj_HashTupleSlot);
 
 	/*
 	 * clean up subtrees
